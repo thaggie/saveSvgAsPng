@@ -121,6 +121,13 @@
       }
 
       clone.setAttribute("version", "1.1");
+      
+      // if there's already a non namespaced attribute for the svg namespace remove it.
+      // With having two xmlns attributes setting the data url on the image silently fails 
+      // with the onload never being called.
+      if (clone.getAttribute("xmlns") !== null) {
+        clone.removeAttribute("xmlns");
+      }
       clone.setAttributeNS(xmlns, "xmlns", "http://www.w3.org/2000/svg");
       clone.setAttributeNS(xmlns, "xmlns:xlink", "http://www.w3.org/1999/xlink");
       clone.setAttribute("width", width * options.scale);
