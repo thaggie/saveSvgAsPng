@@ -122,7 +122,7 @@
 
       clone.setAttribute("version", "1.1");
       
-      if (clone.getAttribute("xmlns") || clone.getAttributeNS(xmlnd, "xmlns")) {
+      if (clone.getAttribute("xmlns") || clone.getAttributeNS(xmlns, "xmlns")) {
         // if there's already a namespace attribute defined leave it as specified.
         
         // Having two xmlns attributes setting the data url on the image silently 
